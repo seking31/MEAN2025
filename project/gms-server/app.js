@@ -2,11 +2,11 @@ const express = require("express");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const mongoose = require("mongoose");
-const { notFoundHandler, errorHandler } = require("./error-handler");
+const { notFoundHandler, errorHandler } = require("./src/error-handler");
 
-const indexRouter = require("./routes/index");
-const gardenRouter = require("./routes/garden/index");
-const plantRouter = require("./routes/plant/index");
+const indexRouter = require("./src/routes/index");
+const gardenRouter = require("./src/routes/garden/index");
+const plantRouter = require("./src/routes/plant/index");
 
 let app = express();
 
@@ -25,7 +25,10 @@ async function connectToDatabase() {
     console.error(`MongoDB connection error: ${err}`);
   }
 }
-connectToDatabase();
+
+if (process.env.NODE_ENV !== "test") {
+  connectToDatabase();
+}
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");

@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { Plant } = require("../../models/plant");
+const { Plant } = require("../../src/models/plant");
 // Connect to a test database
 beforeAll(async () => {
   const connectionString =
