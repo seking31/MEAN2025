@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Message } from '../../message';
 import { MessageService } from '../../message.service';
 @Component({
-  selector: 'app-home',
+  selector: 'app-about',
   standalone: true,
   imports: [],
   template: `
@@ -13,9 +13,9 @@ import { MessageService } from '../../message.service';
   `,
   styles: ``,
 })
-export class HomeComponent {
+export class AboutComponent {
   message: Message;
   constructor(private messageService: MessageService) {
-    this.message = this.messageService.getMessageById(1) || ({} as Message);
+    this.message = this.messageService.getMessageById(2) || ({} as Message);
   }
 }
