@@ -23,7 +23,7 @@ function createComposerService() {
   // Retrieve a specific composer by ID
   async function getComposerById(id) {
     if (!database.hasOwnProperty(id)) {
-      throw new Error("Composer not found in the database");
+      throw new Error("Composer not found in the databaseeee");
     }
     return database[id];
   }

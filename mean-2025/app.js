@@ -3,17 +3,17 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const mongoose = require("mongoose");
 const { notFoundHandler, errorHandler } = require("./error-handler");
-// Importing the index router
+
 const indexRouter = require("./routes/index");
-const gardenRouter = require("./routes/garden");
-const plantRouter = require("./routes/plant");
-// Variable declaration for the express app
+const gardenRouter = require("./routes/garden/index");
+const plantRouter = require("./routes/plant/index");
+
 let app = express();
-// Mongoose connection
+
 const connectionString =
   "mongodb+srv://gms_user:s3cret@bellevueuniversity.qxxmbuj.mongodb.net/?appName=BellevueUniversity";
-const dbName = "gms"; // Database name
-// Function to connect to the database
+const dbName = "gms";
+
 async function connectToDatabase() {
   try {
     await mongoose.connect(connectionString, {
@@ -25,8 +25,8 @@ async function connectToDatabase() {
     console.error(`MongoDB connection error: ${err}`);
   }
 }
-connectToDatabase(); // Call the function to connect to the database
-// CORS configuration
+connectToDatabase();
+
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
@@ -45,9 +45,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 // Routing configuration
-app.use("/api", indexRouter);
 app.use("/api/gardens", gardenRouter);
 app.use("/api/plants", plantRouter);
+app.use("/api", indexRouter);
 // Use the error handling middleware
 app.use(notFoundHandler);
 app.use(errorHandler);
