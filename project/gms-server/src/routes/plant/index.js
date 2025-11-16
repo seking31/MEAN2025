@@ -1,15 +1,14 @@
 const express = require("express");
-const { Plant } = "../../../models/plant";
+const router = express.Router();
+const { Plant } = require("../../models/plant");
+
 const Ajv = require("ajv");
 const createError = require("http-errors");
 const { addPlantSchema, updatePlantSchema } = require("../../schemas");
 
 const ajv = new Ajv();
-
 const validateUpdatePlant = ajv.compile(updatePlantSchema);
 const validateAddPlant = ajv.compile(addPlantSchema);
-
-const router = express.Router();
 
 router.get("/", async (req, res, next) => {
   try {

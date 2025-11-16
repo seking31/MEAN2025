@@ -26,9 +26,7 @@ async function connectToDatabase() {
   }
 }
 
-if (process.env.NODE_ENV !== "test") {
-  connectToDatabase();
-}
+connectToDatabase();
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
