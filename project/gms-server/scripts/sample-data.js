@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
-const { Garden } = require("../models/garden");
-const { Plant } = require("../models/plant");
+const { Garden } = require("../src/models/garden");
+const { Plant } = require("../src/models/plant");
 // Connect to MongoDB
 const connectionString =
   "mongodb+srv://gms_user:s3cret@bellevueuniversity.qxxmbuj.mongodb.net/?appName=BellevueUniversity";

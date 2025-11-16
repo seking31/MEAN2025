@@ -1,25 +1,23 @@
 import { Routes } from '@angular/router';
-import { LayoutComponent } from './layout/layout.component';
 import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
-import { ContactComponent } from './contact/contact.component';
+import { GardenListComponent } from '../garden/garden-list/garden-list.component';
+import { GardenDetailsComponent } from '../garden/garden-details/garden-details.component';
+import { GardenAddComponent } from '../garden/garden-add/garden-add.component';
 export const routes: Routes = [
   {
     path: '',
-    component: LayoutComponent,
-    children: [
-      {
-        path: '',
-        component: HomeComponent,
-      },
-      {
-        path: 'about',
-        component: AboutComponent,
-      },
-      {
-        path: 'contact',
-        component: ContactComponent,
-      },
-    ],
+    component: HomeComponent,
+  },
+  {
+    path: 'gardens',
+    component: GardenListComponent,
+  },
+  {
+    path: 'gardens/add',
+    component: GardenAddComponent,
+  },
+  {
+    path: 'gardens/:gardenId',
+    component: GardenDetailsComponent,
   },
 ];
