@@ -1,0 +1,45 @@
+# ------------------------------------------------------
+# Node.js / Express
+# ------------------------------------------------------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+.DS_Store
+
+# Environment & secrets
+.env
+.env.*
+!.env.example
+
+
+# Runtime data
+pids/
+*.pid
+*.seed a
+*.pid.lock
+
+# Build outputs / cache
+dist/
+build/
+.tmp/
+.cache/
+.next/
+out/
+
+
+# Test artifacts
+jest-html-reporters-*.html
+jest-stare/
+test-results.json
+*.lcov
+
+# Local Mongo / database dumps
+data/
+dump/
+*.bson
+*.json.gz
+
+
